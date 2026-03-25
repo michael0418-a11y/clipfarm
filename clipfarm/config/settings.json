@@ -1,0 +1,38 @@
+{
+  "tiktok_handle": "@yourhandle",
+  "cta_text": "Follow for more",
+  "clip_duration": {
+    "min_seconds": 15,
+    "max_seconds": 60,
+    "target_seconds": 35
+  },
+  "caption_style": {
+    "font_size": 80,
+    "font_color": "white",
+    "outline_color": "black",
+    "outline_width": 4,
+    "position": "center",
+    "bg_color": null
+  },
+  "output": {
+    "resolution": [1080, 1920],
+    "fps": 30,
+    "codec": "libx264",
+    "bitrate": "8M"
+  },
+  "effects": {
+    "zoom_intensity": 1.15,
+    "color_grade": "cinematic",
+    "speed_ramp": true,
+    "bass_boost_db": 6
+  },
+  "ai": {
+    "model": "claude-sonnet-4-20250514",
+    "whisper_model": "base",
+    "top_clips": 5
+  },
+  "batch": {
+    "clips_per_source": 5,
+    "max_concurrent": 3
+  }
+}

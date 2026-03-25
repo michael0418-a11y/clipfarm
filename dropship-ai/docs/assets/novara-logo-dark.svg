@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 120" width="400" height="120">
+  <rect width="400" height="120" fill="#1A1A2E"/>
+  <text x="200" y="78" font-family="'Cormorant Garamond', Georgia, serif" font-size="56" font-weight="600" fill="#F5F0EB" text-anchor="middle" letter-spacing="8">NOVARA</text>
+  <line x1="120" y1="92" x2="280" y2="92" stroke="#C4956A" stroke-width="1.5"/>
+</svg>

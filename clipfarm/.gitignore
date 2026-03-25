@@ -1,0 +1,23 @@
+# Downloaded videos and media
+downloads/*.mp4
+downloads/*.mkv
+downloads/*.webm
+downloads/*.srt
+downloads/*.json
+
+# Output clips and thumbnails
+output/clips/*.mp4
+output/thumbnails/*
+
+# Temp files
+temp/*
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.env
+
+# OS
+.DS_Store
+Thumbs.db
