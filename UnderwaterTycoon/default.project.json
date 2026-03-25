@@ -1,0 +1,151 @@
+{
+  "name": "UnderwaterTycoon",
+  "tree": {
+    "$className": "DataModel",
+
+    "ReplicatedStorage": {
+      "$className": "ReplicatedStorage",
+      "GameConfig": {
+        "$path": "ReplicatedStorage/GameConfig.lua"
+      },
+      "RemoteEvents": {
+        "$path": "ReplicatedStorage/RemoteEvents.lua"
+      },
+      "Modules": {
+        "$className": "Folder",
+        "ModuleData": {
+          "$path": "ReplicatedStorage/Modules/ModuleData.lua"
+        },
+        "CreatureData": {
+          "$path": "ReplicatedStorage/Modules/CreatureData.lua"
+        },
+        "ResearchData": {
+          "$path": "ReplicatedStorage/Modules/ResearchData.lua"
+        }
+      }
+    },
+
+    "ServerScriptService": {
+      "$className": "ServerScriptService",
+      "DataManager": {
+        "$path": "ServerScriptService/DataManager.server.lua"
+      },
+      "GameManager": {
+        "$path": "ServerScriptService/GameManager.server.lua"
+      },
+      "ResourceManager": {
+        "$path": "ServerScriptService/ResourceManager.server.lua"
+      },
+      "BaseManager": {
+        "$path": "ServerScriptService/BaseManager.server.lua"
+      },
+      "CombatManager": {
+        "$path": "ServerScriptService/CombatManager.server.lua"
+      },
+      "ZoneManager": {
+        "$path": "ServerScriptService/ZoneManager.server.lua"
+      },
+      "TurretSystem": {
+        "$path": "ServerScriptService/TurretSystem.server.lua"
+      },
+      "PressureSystem": {
+        "$path": "ServerScriptService/PressureSystem.server.lua"
+      },
+      "TerrainSetup": {
+        "$path": "ServerScriptService/TerrainSetup.server.lua"
+      },
+      "MineralNodes": {
+        "$path": "ServerScriptService/MineralNodes.server.lua"
+      },
+      "ResearchManager": {
+        "$path": "ServerScriptService/ResearchManager.server.lua"
+      },
+      "PrestigeSystem": {
+        "$path": "ServerScriptService/PrestigeSystem.server.lua"
+      },
+      "BossAnnouncer": {
+        "$path": "ServerScriptService/BossAnnouncer.server.lua"
+      }
+    },
+
+    "StarterPlayer": {
+      "$className": "StarterPlayer",
+      "StarterPlayerScripts": {
+        "$className": "StarterPlayerScripts",
+        "PlayerController": {
+          "$path": "StarterPlayer/StarterPlayerScripts/PlayerController.client.lua"
+        },
+        "BuildingClient": {
+          "$path": "StarterPlayer/StarterPlayerScripts/BuildingClient.client.lua"
+        },
+        "MobileControls": {
+          "$path": "StarterPlayer/StarterPlayerScripts/MobileControls.client.lua"
+        }
+      }
+    },
+
+    "StarterGui": {
+      "$className": "StarterGui",
+      "LoadingScreen": {
+        "$className": "ScreenGui",
+        "$properties": {
+          "DisplayOrder": 100,
+          "ResetOnSpawn": false
+        },
+        "LocalScript": {
+          "$path": "StarterGui/LoadingScreen.client.lua"
+        }
+      },
+      "ModeSelectGui": {
+        "$className": "ScreenGui",
+        "$properties": {
+          "DisplayOrder": 50,
+          "ResetOnSpawn": false
+        },
+        "LocalScript": {
+          "$path": "StarterGui/ModeSelectGui.client.lua"
+        }
+      },
+      "HUD": {
+        "$className": "ScreenGui",
+        "$properties": {
+          "DisplayOrder": 10,
+          "ResetOnSpawn": false
+        },
+        "LocalScript": {
+          "$path": "StarterGui/HUD.client.lua"
+        }
+      },
+      "UpgradeGui": {
+        "$className": "ScreenGui",
+        "$properties": {
+          "DisplayOrder": 30,
+          "ResetOnSpawn": false
+        },
+        "LocalScript": {
+          "$path": "StarterGui/UpgradeGui.client.lua"
+        }
+      },
+      "LeaderboardGui": {
+        "$className": "ScreenGui",
+        "$properties": {
+          "DisplayOrder": 20,
+          "ResetOnSpawn": false
+        },
+        "LocalScript": {
+          "$path": "StarterGui/LeaderboardGui.client.lua"
+        }
+      },
+      "BossAnnouncerClient": {
+        "$className": "ScreenGui",
+        "$properties": {
+          "DisplayOrder": 40,
+          "ResetOnSpawn": false
+        },
+        "LocalScript": {
+          "$path": "StarterGui/BossAnnouncerClient.client.lua"
+        }
+      }
+    }
+  }
+}

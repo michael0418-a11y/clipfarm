@@ -1,0 +1,37 @@
+# Local tooling state
+.claude/
+.claude-flow/
+.swarm/
+.mcp.json
+
+# Secrets and credentials
+.env
+.env.local
+.env.*.local
+client_secrets.json
+token.json
+token.pickle
+
+# Generated output (large binary files)
+youtube-autopilot/output/
+youtube-autopilot/temp/
+youtube-autopilot/test_clip*.mp4
+
+# Python
+__pycache__/
+*.pyc
+
+# Node
+node_modules/
+.next/
+out/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Stray files
+20
+b.type
+b.value
+`--
