@@ -1,0 +1,94 @@
+/* === RESET & BASE === */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body { font-family: 'Segoe UI', system-ui, -apple-system, sans-serif; color: #1a1a2e; line-height: 1.6; }
+.container { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
+img { max-width: 100%; }
+
+/* === NAV === */
+.nav { display: flex; justify-content: space-between; align-items: center; padding: 20px 40px; position: absolute; top: 0; left: 0; right: 0; z-index: 10; }
+.logo { font-size: 1.5rem; font-weight: 800; color: #fff; }
+.logo span { color: #4fc3f7; }
+.nav-links { list-style: none; display: flex; gap: 24px; align-items: center; }
+.nav-links a { color: rgba(255,255,255,0.85); text-decoration: none; font-weight: 500; transition: color 0.2s; }
+.nav-links a:hover { color: #fff; }
+
+/* === BUTTONS === */
+.btn { display: inline-block; background: #4fc3f7; color: #0a1628; font-weight: 700; padding: 14px 32px; border-radius: 8px; text-decoration: none; border: none; cursor: pointer; font-size: 1rem; transition: background 0.2s, transform 0.1s; }
+.btn:hover { background: #81d4fa; transform: translateY(-1px); }
+.btn-sm { padding: 8px 20px; font-size: 0.9rem; }
+
+/* === HERO === */
+.hero { background: linear-gradient(135deg, #0a1628 0%, #16213e 50%, #1a1a2e 100%); color: #fff; padding: 140px 40px 100px; text-align: center; min-height: 90vh; display: flex; flex-direction: column; justify-content: center; }
+.hero-content { max-width: 700px; margin: 0 auto; }
+.hero h1 { font-size: 2.8rem; line-height: 1.2; margin-bottom: 20px; }
+.highlight { color: #4fc3f7; }
+.hero p { font-size: 1.25rem; color: rgba(255,255,255,0.75); margin-bottom: 32px; }
+
+/* === PROBLEM / STATS === */
+.problem { padding: 80px 24px; text-align: center; background: #f8f9fa; }
+.problem h2 { font-size: 2rem; margin-bottom: 12px; }
+.problem > .container > p { font-size: 1.1rem; color: #555; margin-bottom: 48px; }
+.stats { display: flex; gap: 40px; justify-content: center; flex-wrap: wrap; }
+.stat { text-align: center; }
+.stat-number { display: block; font-size: 2.8rem; font-weight: 800; color: #4fc3f7; }
+.stat-label { font-size: 0.95rem; color: #555; max-width: 180px; display: block; }
+
+/* === SERVICES === */
+.services { padding: 80px 24px; text-align: center; }
+.services h2 { font-size: 2rem; margin-bottom: 48px; }
+.cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 28px; }
+.card { background: #fff; border: 1px solid #e8e8e8; border-radius: 12px; padding: 36px 28px; text-align: center; transition: box-shadow 0.2s, transform 0.2s; }
+.card:hover { box-shadow: 0 8px 30px rgba(0,0,0,0.08); transform: translateY(-2px); }
+.card-icon { font-size: 2.5rem; margin-bottom: 16px; }
+.card h3 { font-size: 1.3rem; margin-bottom: 12px; }
+.card p { color: #555; font-size: 0.95rem; }
+
+/* === PORTFOLIO === */
+.work { padding: 80px 24px; background: #f8f9fa; text-align: center; }
+.work h2 { font-size: 2rem; margin-bottom: 48px; }
+.portfolio-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 28px; }
+.portfolio-item { background: #fff; border-radius: 12px; overflow: hidden; border: 1px solid #e8e8e8; text-align: left; }
+.portfolio-placeholder { background: linear-gradient(135deg, #16213e, #1a1a2e); color: #4fc3f7; height: 200px; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; font-weight: 600; }
+.portfolio-item h3 { padding: 16px 20px 4px; font-size: 1.1rem; }
+.portfolio-item p { padding: 0 20px 20px; color: #555; font-size: 0.9rem; }
+
+/* === PRICING === */
+.pricing { padding: 80px 24px; text-align: center; }
+.pricing h2 { font-size: 2rem; margin-bottom: 48px; }
+.pricing .card { position: relative; }
+.pricing .card.featured { border: 2px solid #4fc3f7; transform: scale(1.04); }
+.badge { position: absolute; top: -14px; left: 50%; transform: translateX(-50%); background: #4fc3f7; color: #0a1628; font-size: 0.8rem; font-weight: 700; padding: 4px 16px; border-radius: 20px; }
+.price { font-size: 2.5rem; font-weight: 800; margin: 12px 0 20px; color: #16213e; }
+.pricing ul { list-style: none; text-align: left; margin-bottom: 24px; }
+.pricing li { padding: 6px 0; color: #444; font-size: 0.95rem; }
+.pricing li::before { content: "✓ "; color: #4fc3f7; font-weight: 700; }
+
+/* === CONTACT === */
+.contact { padding: 80px 24px; background: #f8f9fa; text-align: center; }
+.contact h2 { font-size: 2rem; margin-bottom: 8px; }
+.contact > .container > p { color: #555; margin-bottom: 36px; }
+.contact-form { max-width: 500px; margin: 0 auto; display: flex; flex-direction: column; gap: 14px; }
+.contact-form input, .contact-form select, .contact-form textarea {
+    padding: 14px 16px; border: 1px solid #ddd; border-radius: 8px; font-size: 1rem;
+    font-family: inherit; transition: border-color 0.2s;
+}
+.contact-form input:focus, .contact-form select:focus, .contact-form textarea:focus {
+    outline: none; border-color: #4fc3f7;
+}
+.form-success h3 { color: #16213e; font-size: 1.4rem; }
+
+/* === FOOTER === */
+.footer { padding: 40px 24px; text-align: center; background: #0a1628; color: rgba(255,255,255,0.6); }
+.footer .logo { margin-bottom: 8px; }
+
+/* === RESPONSIVE === */
+@media (max-width: 768px) {
+    .nav { padding: 16px 20px; }
+    .nav-links { display: none; } /* hamburger menu can be added later */
+    .hero { padding: 100px 20px 60px; min-height: auto; }
+    .hero h1 { font-size: 1.8rem; }
+    .hero p { font-size: 1rem; }
+    .stats { flex-direction: column; gap: 24px; }
+    .pricing .card.featured { transform: none; }
+}
