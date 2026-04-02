@@ -39,8 +39,10 @@ def download_video(url: str, output_name: str = None) -> dict:
 
     info = json.loads(result.stdout)
     title = info.get("title", "unknown")
+    # Sanitize title for Windows console and filesystem
+    safe_title = title.encode("ascii", "replace").decode("ascii")
     duration = info.get("duration", 0)
-    print(f"[*] Found: '{title}' ({duration}s)")
+    print(f"[*] Found: '{safe_title}' ({duration}s)")
 
     # Download with best quality up to 1080p
     dl_cmd = [
@@ -55,7 +57,7 @@ def download_video(url: str, output_name: str = None) -> dict:
         url,
     ]
 
-    print(f"[*] Downloading: '{title}'...")
+    print(f"[*] Downloading: '{safe_title}'...")
     result = subprocess.run(dl_cmd, capture_output=True, text=True)
     if result.returncode != 0:
         # Try simpler format if merge fails
@@ -97,7 +99,7 @@ def download_video(url: str, output_name: str = None) -> dict:
                 sub_file = f
                 break
 
-    print(f"[+] Downloaded: {downloaded}")
+    print(f"[+] Downloaded: {str(downloaded).encode('ascii', 'replace').decode('ascii')}")
     return {
         "path": str(downloaded),
         "title": title,

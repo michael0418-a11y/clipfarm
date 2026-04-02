@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MichaWeb Dashboard — Your Leads & Sites</title>
+    <style>
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: 'Segoe UI', system-ui, sans-serif; background: #0f1117; color: #e0e0e0; min-height: 100vh; }
+
+        .topbar { background: #161822; padding: 16px 32px; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #2a2d3a; }
+        .topbar h1 { font-size: 1.3rem; font-weight: 700; }
+        .topbar h1 span { color: #4fc3f7; }
+        .topbar-stats { display: flex; gap: 24px; }
+        .topbar-stat { text-align: center; }
+        .topbar-stat .num { font-size: 1.5rem; font-weight: 800; color: #4fc3f7; }
+        .topbar-stat .label { font-size: 0.75rem; color: #888; text-transform: uppercase; letter-spacing: 1px; }
+
+        .container { max-width: 1200px; margin: 0 auto; padding: 32px 24px; }
+
+        .section-title { font-size: 1.1rem; font-weight: 600; margin-bottom: 16px; color: #fff; }
+
+        /* Lead Cards */
+        .leads-grid { display: flex; flex-direction: column; gap: 16px; margin-bottom: 40px; }
+        .lead-card { background: #161822; border: 1px solid #2a2d3a; border-radius: 12px; padding: 24px; transition: border-color 0.2s; }
+        .lead-card:hover { border-color: #4fc3f7; }
+        .lead-header { display: flex; justify-content: space-between; align-items: start; margin-bottom: 12px; }
+        .lead-name { font-size: 1.2rem; font-weight: 700; color: #fff; }
+        .lead-business { color: #4fc3f7; font-weight: 600; }
+        .lead-badge { padding: 4px 12px; border-radius: 20px; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; }
+        .badge-new { background: #1a3a2a; color: #4caf50; }
+        .badge-site-ready { background: #1a2a3a; color: #4fc3f7; }
+        .badge-sent { background: #3a3a1a; color: #ffd54f; }
+        .badge-paid { background: #1a3a1a; color: #66bb6a; }
+        .lead-details { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 12px; margin-bottom: 16px; }
+        .lead-detail { font-size: 0.9rem; }
+        .lead-detail .lbl { color: #666; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.5px; }
+        .lead-message { background: #0f1117; border-radius: 8px; padding: 12px; font-size: 0.9rem; color: #aaa; margin-bottom: 16px; font-style: italic; }
+        .lead-actions { display: flex; gap: 10px; flex-wrap: wrap; }
+
+        /* Buttons */
+        .btn { padding: 10px 20px; border-radius: 6px; border: none; cursor: pointer; font-weight: 600; font-size: 0.85rem; transition: all 0.15s; font-family: inherit; }
+        .btn-generate { background: #4fc3f7; color: #0f1117; }
+        .btn-generate:hover { background: #81d4fa; }
+        .btn-view { background: #2a2d3a; color: #e0e0e0; }
+        .btn-view:hover { background: #3a3d4a; }
+        .btn-status { background: #2a3a2a; color: #66bb6a; }
+        .btn-status:hover { background: #3a4a3a; }
+        .btn-danger { background: #3a1a1a; color: #ef5350; }
+        .btn:disabled { opacity: 0.4; cursor: not-allowed; }
+
+        /* Site preview link */
+        .site-link { display: inline-block; margin-top: 8px; color: #4fc3f7; text-decoration: none; font-weight: 600; }
+        .site-link:hover { text-decoration: underline; }
+
+        /* Empty state */
+        .empty-state { text-align: center; padding: 60px 24px; color: #555; }
+        .empty-state h2 { color: #888; font-size: 1.3rem; margin-bottom: 8px; }
+        .empty-state p { font-size: 0.95rem; }
+        .empty-state .arrow { font-size: 2rem; margin-top: 16px; }
+
+        /* Money tracker */
+        .money-bar { background: #161822; border: 1px solid #2a2d3a; border-radius: 12px; padding: 24px; margin-bottom: 32px; display: flex; justify-content: space-around; text-align: center; }
+        .money-item .amount { font-size: 2rem; font-weight: 800; }
+        .money-item .amount.green { color: #66bb6a; }
+        .money-item .amount.blue { color: #4fc3f7; }
+        .money-item .amount.yellow { color: #ffd54f; }
+        .money-item .mlabel { font-size: 0.75rem; color: #888; text-transform: uppercase; letter-spacing: 1px; margin-top: 4px; }
+
+        /* Notification */
+        .notification { position: fixed; top: 20px; right: 20px; background: #1a3a2a; color: #4caf50; padding: 16px 24px; border-radius: 8px; font-weight: 600; display: none; z-index: 100; border: 1px solid #4caf50; }
+
+        @media (max-width: 768px) {
+            .money-bar { flex-direction: column; gap: 20px; }
+            .topbar { flex-direction: column; gap: 12px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="topbar">
+        <h1>Micha<span>Web</span> Dashboard</h1>
+        <div class="topbar-stats">
+            <div class="topbar-stat"><div class="num" id="totalLeads">0</div><div class="label">Leads</div></div>
+            <div class="topbar-stat"><div class="num" id="sitesBuilt">0</div><div class="label">Sites Built</div></div>
+            <div class="topbar-stat"><div class="num" id="paidCount">0</div><div class="label">Paid</div></div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="money-bar">
+            <div class="money-item">
+                <div class="amount green" id="totalEarned">$0</div>
+                <div class="mlabel">Total Earned</div>
+            </div>
+            <div class="money-item">
+                <div class="amount blue" id="pendingMoney">$0</div>
+                <div class="mlabel">Pending (Site Ready)</div>
+            </div>
+            <div class="money-item">
+                <div class="amount yellow" id="potentialMoney">$0</div>
+                <div class="mlabel">Potential (New Leads)</div>
+            </div>
+        </div>
+
+        <div class="section-title">Your Leads</div>
+        <div class="leads-grid" id="leadsContainer">
+            <div class="empty-state">
+                <h2>No leads yet</h2>
+                <p>Share your agency site and leads will appear here automatically.</p>
+                <p>Your site: <a href="/agency/" class="site-link">http://localhost:3030/agency/</a></p>
+                <div class="arrow">&#8595;</div>
+                <p style="margin-top:8px; font-size:0.85rem;">Or add a test lead below</p>
+                <button class="btn btn-generate" onclick="addTestLead()" style="margin-top:12px;">Add Test Lead (Tony's Pizzeria)</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="notification" id="notification"></div>
+
+    <script>
+        const API = '';
+        const PRICE_MAP = { 'new-website': 499, 'redesign': 399, 'menu': 599, 'booking': 499, 'other': 499 };
+
+        function getPrice(service) { return PRICE_MAP[service] || 499; }
+
+        function notify(msg) {
+            const n = document.getElementById('notification');
+            n.textContent = msg;
+            n.style.display = 'block';
+            setTimeout(() => n.style.display = 'none', 3000);
+        }
+
+        async function loadLeads() {
+            const res = await fetch(API + '/api/leads');
+            const leads = await res.json();
+            renderLeads(leads);
+        }
+
+        function renderLeads(leads) {
+            const container = document.getElementById('leadsContainer');
+
+            // Stats
+            document.getElementById('totalLeads').textContent = leads.length;
+            document.getElementById('sitesBuilt').textContent = leads.filter(l => l.siteSlug).length;
+            document.getElementById('paidCount').textContent = leads.filter(l => l.status === 'paid').length;
+
+            const earned = leads.filter(l => l.status === 'paid').reduce((s, l) => s + getPrice(l.service), 0);
+            const pending = leads.filter(l => l.status === 'site-ready' || l.status === 'sent').reduce((s, l) => s + getPrice(l.service), 0);
+            const potential = leads.filter(l => l.status === 'new').reduce((s, l) => s + getPrice(l.service), 0);
+
+            document.getElementById('totalEarned').textContent = '$' + earned;
+            document.getElementById('pendingMoney').textContent = '$' + pending;
+            document.getElementById('potentialMoney').textContent = '$' + potential;
+
+            if (leads.length === 0) return;
+
+            // Sort: new first, then site-ready, sent, paid
+            const order = { 'new': 0, 'site-ready': 1, 'sent': 2, 'paid': 3 };
+            leads.sort((a, b) => (order[a.status] || 0) - (order[b.status] || 0));
+
+            container.innerHTML = leads.map(lead => `
+                <div class="lead-card">
+                    <div class="lead-header">
+                        <div>
+                            <div class="lead-name">${esc(lead.name)}</div>
+                            <div class="lead-business">${esc(lead.business)}</div>
+                        </div>
+                        <span class="lead-badge badge-${lead.status}">${lead.status.replace('-', ' ')}</span>
+                    </div>
+                    <div class="lead-details">
+                        <div class="lead-detail"><div class="lbl">Phone</div>${esc(lead.phone)}</div>
+                        <div class="lead-detail"><div class="lbl">Email</div>${esc(lead.email)}</div>
+                        <div class="lead-detail"><div class="lbl">Service</div>${esc(lead.service)}</div>
+                        <div class="lead-detail"><div class="lbl">Est. Price</div>$${getPrice(lead.service)}</div>
+                    </div>
+                    ${lead.message ? `<div class="lead-message">"${esc(lead.message)}"</div>` : ''}
+                    <div class="lead-actions">
+                        ${lead.status === 'new' ? `<button class="btn btn-generate" onclick="generateSite(${lead.id})">Generate Their Site</button>` : ''}
+                        ${lead.siteSlug ? `<a href="/sites/${lead.siteSlug}/" target="_blank" class="btn btn-view">View Generated Site</a>` : ''}
+                        ${lead.status === 'site-ready' ? `<button class="btn btn-status" onclick="updateStatus(${lead.id}, 'sent')">Mark as Sent to Client</button>` : ''}
+                        ${lead.status === 'sent' ? `<button class="btn btn-status" onclick="updateStatus(${lead.id}, 'paid')">Mark as Paid $$</button>` : ''}
+                        ${lead.status === 'paid' ? `<span style="color:#66bb6a; font-weight:700;">Paid $${getPrice(lead.service)}</span>` : ''}
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function esc(s) { const d = document.createElement('div'); d.textContent = s || ''; return d.innerHTML; }
+
+        async function generateSite(leadId) {
+            const btn = event.target;
+            btn.disabled = true;
+            btn.textContent = 'Generating...';
+            const res = await fetch(API + '/api/generate', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ leadId })
+            });
+            const data = await res.json();
+            notify('Site generated! ' + data.url);
+            loadLeads();
+        }
+
+        async function updateStatus(leadId, status) {
+            await fetch(API + '/api/lead-status', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ leadId, status })
+            });
+            notify(status === 'paid' ? 'Ka-ching! Payment recorded!' : 'Status updated!');
+            loadLeads();
+        }
+
+        async function addTestLead() {
+            await fetch(API + '/api/leads', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    name: 'Tony Mancini',
+                    business: "Tony's Pizzeria",
+                    phone: '555-867-5309',
+                    email: 'tony@tonyspizzeria.com',
+                    service: 'new-website',
+                    message: "We've been open 12 years but never had a website. Customers keep asking if we do online ordering.",
+                    address: '456 4th Street',
+                    city: 'Brooklyn, NY 11201'
+                })
+            });
+            notify('Test lead added!');
+            loadLeads();
+        }
+
+        // Poll for new leads every 10 seconds
+        loadLeads();
+        setInterval(loadLeads, 10000);
+    </script>
+</body>
+</html>

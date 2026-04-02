@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1774508596732,
+    "name": "Tony Mancini",
+    "business": "Tony's Pizzeria",
+    "phone": "555-867-5309",
+    "email": "tony@tonyspizzeria.com",
+    "service": "new-website",
+    "message": "We've been open 12 years but never had a website. Customers keep asking if we do online ordering.",
+    "address": "456 4th Street",
+    "city": "Brooklyn, NY 11201",
+    "status": "site-ready",
+    "siteSlug": "tony-s-pizzeria",
+    "createdAt": "2026-03-26T07:03:16.732Z"
+  }
+]
