@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bella's Italian Kitchen — Authentic Italian Dining</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- NAV -->
+    <nav class="nav">
+        <div class="logo">Bella's<span> Italian Kitchen</span></div>
+        <ul class="nav-links">
+            <li><a href="#about">About</a></li>
+            <li><a href="#menu">Menu</a></li>
+            <li><a href="#gallery">Gallery</a></li>
+            <li><a href="#reviews">Reviews</a></li>
+            <li><a href="#contact" class="btn btn-sm">Reserve a Table</a></li>
+        </ul>
+    </nav>
+
+    <!-- HERO -->
+    <header class="hero">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <p class="hero-tagline">Est. 2010 &bull; Family Owned</p>
+            <h1>Authentic Italian,<br>Made with Love</h1>
+            <p class="hero-sub">Fresh pasta, wood-fired pizza, and family recipes passed down for generations.</p>
+            <div class="hero-btns">
+                <a href="#menu" class="btn">View Our Menu</a>
+                <a href="#contact" class="btn btn-outline">Reserve a Table</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- ABOUT -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="about-grid">
+                <div class="about-text">
+                    <h2>Our Story</h2>
+                    <p>For over 15 years, Bella's Italian Kitchen has been serving the community with authentic Italian cuisine made from scratch daily. Our recipes come straight from Nonna Bella's kitchen in Napoli.</p>
+                    <p>We use only the freshest local ingredients, imported Italian cheeses, and hand-made pasta to bring you a true taste of Italy — right here in your neighborhood.</p>
+                </div>
+                <div class="about-info">
+                    <div class="info-card">
+                        <h3>Hours</h3>
+                        <p>Mon - Thu: 11am - 9pm</p>
+                        <p>Fri - Sat: 11am - 10pm</p>
+                        <p>Sunday: 12pm - 8pm</p>
+                    </div>
+                    <div class="info-card">
+                        <h3>Location</h3>
+                        <p>123 Main Street</p>
+                        <p>Your City, ST 12345</p>
+                        <p>(555) 123-4567</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- MENU -->
+    <section id="menu" class="menu">
+        <div class="container">
+            <h2>Our Menu</h2>
+            <p class="section-sub">Fresh ingredients, timeless recipes</p>
+
+            <div class="menu-tabs">
+                <button class="tab active" data-tab="appetizers">Appetizers</button>
+                <button class="tab" data-tab="pasta">Pasta</button>
+                <button class="tab" data-tab="pizza">Pizza</button>
+                <button class="tab" data-tab="desserts">Desserts</button>
+            </div>
+
+            <div class="menu-content active" id="appetizers">
+                <div class="menu-item">
+                    <div class="menu-item-header">
+                        <h3>Bruschetta Classica</h3><span class="price">$9</span>
+                    </div>
+                    <p>Toasted ciabatta with fresh tomatoes, basil, garlic, and extra virgin olive oil</p>
+                </div>
+                <div class="menu-item">
+                    <div class="menu-item-header">
+                        <h3>Calamari Fritti</h3><span class="price">$13</span>
+                    </div>
+                    <p>Lightly fried calamari with marinara sauce and lemon aioli</p>
+                </div>
+                <div class="menu-item">
+                    <div class="menu-item-header">
+                        <h3>Caprese Salad</h3><span class="price">$11</span>
+                    </div>
+                    <p>Fresh mozzarella, vine tomatoes, basil, balsamic glaze</p>
+                </div>
+                <div class="menu-item">
+                    <div class="menu-item-header">
+                        <h3>Antipasto Board</h3><span class="price">$16</span>
+                    </div>
+                    <p>Prosciutto, salami, olives, roasted peppers, fresh mozzarella, and grilled bread</p>
+                </div>
+            </div>
+
+            <div class="menu-content" id="pasta">
+                <div class="menu-item">
+                    <div class="menu-item-header">
+                        <h3>Spaghetti Carbonara</h3><span class="price">$17</span>
+                    </div>
+                    <p>Hand-made spaghetti, pancetta, egg yolk, pecorino romano, black pepper</p>
+                </div>
+                <div class="menu-item">
+                    <div class="menu-item-header">
+                        <h3>Fettuccine Alfredo</h3><span class="price">$16</span>
+                    </div>
+                    <p>Fresh fettuccine tossed in a creamy parmesan sauce</p>
+                </div>
+                <div class="menu-item">
+                    <div class="menu-item-header">
+                        <h3>Penne Arrabbiata</h3><span class="price">$15</span>
+                    </div>
+                    <p>Penne in spicy tomato sauce with garlic and red chili flakes</p>
+                </div>
+                <div class="menu-item">
+                    <div class="menu-item-header">
+                        <h3>Lasagna della Nonna</h3><span class="price">$19</span>
+                    </div>
+                    <p>Layers of fresh pasta, beef ragu, bechamel, and mozzarella — Nonna's recipe</p>
+                </div>
+            </div>
+
+            <div class="menu-content" id="pizza">
+                <div class="menu-item">
+                    <div class="menu-item-header">
+                        <h3>Margherita</h3><span class="price">$14</span>
+                    </div>
+                    <p>San Marzano tomato sauce, fresh mozzarella, basil, extra virgin olive oil</p>
+                </div>
+                <div class="menu-item">
+                    <div class="menu-item-header">
+                        <h3>Pepperoni</h3><span class="price">$16</span>
+                    </div>
+                    <p>Tomato sauce, mozzarella, spicy pepperoni, oregano</p>
+                </div>
+                <div class="menu-item">
+                    <div class="menu-item-header">
+                        <h3>Quattro Formaggi</h3><span class="price">$17</span>
+                    </div>
+                    <p>Mozzarella, gorgonzola, fontina, and parmesan on a white base</p>
+                </div>
+                <div class="menu-item">
+                    <div class="menu-item-header">
+                        <h3>Prosciutto e Rucola</h3><span class="price">$18</span>
+                    </div>
+                    <p>Prosciutto di Parma, arugula, shaved parmesan, truffle oil</p>
+                </div>
+            </div>
+
+            <div class="menu-content" id="desserts">
+                <div class="menu-item">
+                    <div class="menu-item-header">
+                        <h3>Tiramisu</h3><span class="price">$9</span>
+                    </div>
+                    <p>Classic Italian dessert with espresso-soaked ladyfingers and mascarpone cream</p>
+                </div>
+                <div class="menu-item">
+                    <div class="menu-item-header">
+                        <h3>Panna Cotta</h3><span class="price">$8</span>
+                    </div>
+                    <p>Vanilla bean panna cotta with mixed berry compote</p>
+                </div>
+                <div class="menu-item">
+                    <div class="menu-item-header">
+                        <h3>Cannoli</h3><span class="price">$7</span>
+                    </div>
+                    <p>Crispy shells filled with sweet ricotta, chocolate chips, and pistachios</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- GALLERY -->
+    <section id="gallery" class="gallery">
+        <div class="container">
+            <h2>Our Restaurant</h2>
+            <div class="gallery-grid">
+                <div class="gallery-item" style="background: linear-gradient(135deg, #8B4513, #D2691E);">
+                    <span>Wood-Fired Oven</span>
+                </div>
+                <div class="gallery-item" style="background: linear-gradient(135deg, #2F4F4F, #556B2F);">
+                    <span>Fresh Ingredients</span>
+                </div>
+                <div class="gallery-item" style="background: linear-gradient(135deg, #8B0000, #CD853F);">
+                    <span>Cozy Dining Room</span>
+                </div>
+                <div class="gallery-item" style="background: linear-gradient(135deg, #4A0E0E, #8B4513);">
+                    <span>Wine Selection</span>
+                </div>
+                <div class="gallery-item" style="background: linear-gradient(135deg, #556B2F, #8FBC8F);">
+                    <span>Outdoor Patio</span>
+                </div>
+                <div class="gallery-item" style="background: linear-gradient(135deg, #CD853F, #DEB887);">
+                    <span>Hand-Made Pasta</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- REVIEWS -->
+    <section id="reviews" class="reviews">
+        <div class="container">
+            <h2>What Our Guests Say</h2>
+            <div class="reviews-grid">
+                <div class="review-card">
+                    <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                    <p>"Best Italian food in town, hands down. The carbonara is out of this world and the staff makes you feel like family."</p>
+                    <div class="reviewer">— Maria S.</div>
+                </div>
+                <div class="review-card">
+                    <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                    <p>"We had our anniversary dinner here. Perfect atmosphere, incredible food, and the tiramisu was the best I've ever had."</p>
+                    <div class="reviewer">— James & Linda R.</div>
+                </div>
+                <div class="review-card">
+                    <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                    <p>"Finally a pizza place that does it right. The wood-fired crust is crispy, the ingredients are fresh. We come every week now."</p>
+                    <div class="reviewer">— David T.</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT / RESERVATION -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <h2>Reserve a Table</h2>
+                    <p>Book your table online or call us directly. Walk-ins are always welcome!</p>
+                    <div class="contact-details">
+                        <div class="detail">
+                            <strong>Phone</strong>
+                            <p>(555) 123-4567</p>
+                        </div>
+                        <div class="detail">
+                            <strong>Address</strong>
+                            <p>123 Main Street<br>Your City, ST 12345</p>
+                        </div>
+                        <div class="detail">
+                            <strong>Email</strong>
+                            <p>hello@bellasitaliankitchen.com</p>
+                        </div>
+                    </div>
+                </div>
+                <form class="reservation-form" id="reservationForm">
+                    <input type="text" placeholder="Your Name" required>
+                    <input type="tel" placeholder="Phone Number" required>
+                    <input type="email" placeholder="Email Address" required>
+                    <div class="form-row">
+                        <input type="date" required>
+                        <input type="time" required>
+                    </div>
+                    <select required>
+                        <option value="">Number of Guests</option>
+                        <option>1-2 Guests</option>
+                        <option>3-4 Guests</option>
+                        <option>5-6 Guests</option>
+                        <option>7+ Guests</option>
+                    </select>
+                    <textarea placeholder="Special requests..." rows="3"></textarea>
+                    <button type="submit" class="btn">Reserve My Table</button>
+                </form>
+            </div>
+            <div class="form-success" id="formSuccess" style="display:none;">
+                <h3>Reservation Requested! We'll confirm by phone within 2 hours.</h3>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container">
+            <div class="logo">Bella's<span> Italian Kitchen</span></div>
+            <p>123 Main Street, Your City, ST 12345 &bull; (555) 123-4567</p>
+            <p class="footer-credit">Website by <a href="#">MichaWeb</a></p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(a => {
+            a.addEventListener('click', e => {
+                e.preventDefault();
+                document.querySelector(a.getAttribute('href')).scrollIntoView({ behavior: 'smooth' });
+            });
+        });
+
+        // Menu tabs
+        document.querySelectorAll('.tab').forEach(tab => {
+            tab.addEventListener('click', () => {
+                document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+                document.querySelectorAll('.menu-content').forEach(c => c.classList.remove('active'));
+                tab.classList.add('active');
+                document.getElementById(tab.dataset.tab).classList.add('active');
+            });
+        });
+
+        // Reservation form
+        document.getElementById('reservationForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            this.style.display = 'none';
+            document.getElementById('formSuccess').style.display = 'block';
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,71 @@
+============================================
+  WEB AGENCY — HOW TO USE EVERYTHING
+============================================
+
+WHAT YOU HAVE
+=============
+
+1. YOUR AGENCY SITE (my-agency/)
+   - This is YOUR website to pitch clients
+   - Shows your services, pricing, and portfolio
+   - Has a contact form for leads
+
+2. RESTAURANT TEMPLATE (templates/restaurant/)
+   - A demo site you show to restaurant owners
+   - Has menu with tabs, reviews, reservation form
+   - Looks professional and warm
+
+HOW TO VIEW THEM
+================
+Just double-click the index.html file in either folder.
+It opens right in your browser — no install needed.
+
+HOW TO CUSTOMIZE FOR A CLIENT
+=============================
+1. Open the index.html in any text editor (even Notepad)
+2. Find-and-replace the business name (e.g., "Bella's Italian Kitchen")
+3. Change the address, phone number, and hours
+4. Update the menu items and prices
+5. Save the file — done!
+
+Or just ask me (Claude) to customize it for you. Say something like:
+  "Customize the restaurant template for Mario's Pizza at 456 Oak St,
+   phone 555-999-8888, open Mon-Sat 10am-11pm"
+
+HOW TO HOST FOR FREE (GitHub Pages)
+====================================
+1. Go to github.com and create a free account (if you don't have one)
+2. Click "New Repository"
+3. Name it something like "marios-pizza" (the client's business)
+4. Upload the index.html and style.css files
+5. Go to Settings > Pages > Source: main branch
+6. Your site is live at: yourusername.github.io/marios-pizza
+
+OTHER FREE HOSTING OPTIONS
+===========================
+- Netlify (netlify.com) — drag and drop your folder, instant site
+- Vercel (vercel.com) — same idea, also free
+- Cloudflare Pages — free, very fast
+
+HOW TO FIND CLIENTS
+====================
+1. Open Google Maps
+2. Search "plumbers near me" or "restaurants near me" etc.
+3. Look for businesses WITHOUT a website link
+4. Call or visit them and show them the demo
+5. Your pitch: "I can have a site like this live for you in 48 hours"
+
+PRICING GUIDE
+=============
+- Simple 1-3 page site: charge $299
+- Full site with menu/booking: charge $499
+- Premium with extras: charge $799
+- These take you 1-3 hours with Claude, so that's great hourly pay
+
+ASKING CLAUDE TO BUILD MORE TEMPLATES
+======================================
+Just tell me what you need! Examples:
+  "Build me a contractor/plumber template"
+  "Build me a hair salon template"
+  "Build me a fitness trainer template"
+  "Customize the restaurant template for [specific business]"

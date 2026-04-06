@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MichaWeb — Websites for Local Businesses</title>
+    <style>
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        html { scroll-behavior: smooth; }
+        body { font-family: 'Segoe UI', system-ui, sans-serif; color: #111; line-height: 1.6; background: #fff; }
+
+        /* Nav */
+        nav { display: flex; justify-content: space-between; align-items: center; padding: 24px 32px; max-width: 1100px; margin: 0 auto; }
+        .logo { font-size: 1.2rem; font-weight: 800; letter-spacing: -0.5px; }
+        .logo span { color: #2563eb; }
+        nav a.cta { background: #111; color: #fff; padding: 10px 24px; border-radius: 6px; text-decoration: none; font-weight: 600; font-size: 0.9rem; }
+        nav a.cta:hover { background: #333; }
+
+        /* Hero — just a headline and one line */
+        .hero { max-width: 700px; margin: 0 auto; padding: 100px 32px 60px; }
+        .hero h1 { font-size: 2.6rem; font-weight: 800; line-height: 1.15; letter-spacing: -1px; margin-bottom: 16px; }
+        .hero p { font-size: 1.15rem; color: #555; max-width: 500px; margin-bottom: 32px; }
+        .hero a { background: #2563eb; color: #fff; padding: 14px 32px; border-radius: 6px; text-decoration: none; font-weight: 700; font-size: 1rem; display: inline-block; }
+        .hero a:hover { background: #1d4ed8; }
+
+        /* Work */
+        .work { max-width: 1100px; margin: 0 auto; padding: 40px 32px 80px; }
+        .work h2 { font-size: 1.1rem; text-transform: uppercase; letter-spacing: 2px; color: #999; font-weight: 600; margin-bottom: 32px; }
+        .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+        .project { border-radius: 10px; overflow: hidden; position: relative; aspect-ratio: 16/10; }
+        .project iframe { width: 200%; height: 200%; border: none; transform: scale(0.5); transform-origin: top left; pointer-events: none; }
+        .project-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, transparent 50%); display: flex; flex-direction: column; justify-content: flex-end; padding: 24px; opacity: 0; transition: opacity 0.25s; }
+        .project:hover .project-overlay { opacity: 1; }
+        .project-overlay h3 { color: #fff; font-size: 1.1rem; margin-bottom: 4px; }
+        .project-overlay p { color: rgba(255,255,255,0.7); font-size: 0.85rem; margin-bottom: 12px; }
+        .project-overlay a { color: #fff; font-weight: 600; font-size: 0.85rem; text-decoration: none; border-bottom: 1px solid rgba(255,255,255,0.4); display: inline-block; }
+
+        /* Offer */
+        .offer { background: #fafafa; border-top: 1px solid #eee; border-bottom: 1px solid #eee; }
+        .offer-inner { max-width: 800px; margin: 0 auto; padding: 80px 32px; display: grid; grid-template-columns: 1fr 1fr; gap: 60px; }
+        .offer h2 { font-size: 1.8rem; font-weight: 800; letter-spacing: -0.5px; margin-bottom: 20px; line-height: 1.2; }
+        .offer p { color: #555; margin-bottom: 12px; font-size: 0.95rem; }
+        .offer ul { list-style: none; margin: 20px 0; }
+        .offer li { padding: 8px 0; color: #333; font-size: 0.95rem; border-bottom: 1px solid #eee; }
+        .offer li:last-child { border: none; }
+        .price-tag { font-size: 2rem; font-weight: 800; margin: 20px 0 8px; }
+        .price-tag span { color: #999; font-size: 1rem; font-weight: 400; }
+        .price-tag.monthly { margin-top: 28px; padding-top: 20px; border-top: 1px solid #eee; color: #2563eb; }
+        .price-note { color: #777; font-size: 0.85rem; }
+
+        /* Contact */
+        .contact { max-width: 550px; margin: 0 auto; padding: 80px 32px; text-align: center; }
+        .contact h2 { font-size: 1.8rem; font-weight: 800; margin-bottom: 8px; letter-spacing: -0.5px; }
+        .contact > p { color: #777; margin-bottom: 32px; font-size: 0.95rem; }
+        .contact form { display: flex; flex-direction: column; gap: 12px; text-align: left; }
+        .contact input, .contact textarea { padding: 14px 16px; border: 1px solid #ddd; border-radius: 6px; font-size: 0.95rem; font-family: inherit; width: 100%; }
+        .contact input:focus, .contact textarea:focus { outline: none; border-color: #2563eb; }
+        .contact button { background: #111; color: #fff; padding: 14px; border: none; border-radius: 6px; font-size: 1rem; font-weight: 700; cursor: pointer; font-family: inherit; }
+        .contact button:hover { background: #333; }
+        .form-success { display: none; padding: 40px 0; }
+        .form-success h3 { font-size: 1.2rem; color: #111; }
+
+        /* Footer */
+        footer { text-align: center; padding: 40px 32px; color: #bbb; font-size: 0.8rem; border-top: 1px solid #eee; }
+
+        /* Mobile */
+        @media (max-width: 768px) {
+            .hero { padding: 60px 20px 40px; }
+            .hero h1 { font-size: 1.8rem; }
+            .grid { grid-template-columns: 1fr; }
+            .offer-inner { grid-template-columns: 1fr; gap: 40px; }
+            nav { padding: 16px 20px; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo">micha<span>web</span></div>
+        <a href="#contact" class="cta">Get a quote</a>
+    </nav>
+
+    <section class="hero">
+        <h1>I build websites for small businesses.</h1>
+        <p>You run your business. I'll make sure people can find you online. Fast turnaround, fair prices, no BS.</p>
+        <a href="#work">See my work</a>
+    </section>
+
+    <section class="work" id="work">
+        <h2>Recent projects</h2>
+        <div class="grid">
+            <div class="project">
+                <iframe src="https://glistening-quokka-2cc066.netlify.app" loading="lazy" title="Fresh Cuts Barbershop"></iframe>
+                <div class="project-overlay">
+                    <h3>Fresh Cuts Barbershop</h3>
+                    <p>Booking, services, reviews</p>
+                    <a href="https://glistening-quokka-2cc066.netlify.app" target="_blank">View site</a>
+                </div>
+            </div>
+            <div class="project">
+                <iframe src="https://endearing-mandazi-b7bde4.netlify.app" loading="lazy" title="Elite Yard Services"></iframe>
+                <div class="project-overlay">
+                    <h3>Elite Yard Services</h3>
+                    <p>Lawn care, Tampa FL</p>
+                    <a href="https://endearing-mandazi-b7bde4.netlify.app" target="_blank">View site</a>
+                </div>
+            </div>
+            <div class="project">
+                <iframe src="https://roaring-raindrop-f412f7.netlify.app" loading="lazy" title="Bella's Italian Kitchen"></iframe>
+                <div class="project-overlay">
+                    <h3>Bella's Italian Kitchen</h3>
+                    <p>Menu, reservations, gallery</p>
+                    <a href="https://roaring-raindrop-f412f7.netlify.app" target="_blank">View site</a>
+                </div>
+            </div>
+            <div class="project">
+                <iframe src="https://zesty-froyo-fa6dcb.netlify.app" loading="lazy" title="Primo Lawn Service"></iframe>
+                <div class="project-overlay">
+                    <h3>Primo Lawn Service</h3>
+                    <p>Lawn service, Tampa FL</p>
+                    <a href="https://zesty-froyo-fa6dcb.netlify.app" target="_blank">View site</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="offer" id="pricing">
+        <div class="offer-inner">
+            <div>
+                <h2>Here's the deal.</h2>
+                <p>I'll build your website, you look at it, and you only pay if you like it. No deposit. You own everything.</p>
+                <p>Most sites are done in 2 days. After that, I keep it running, updated, and looking good for a flat monthly rate.</p>
+            </div>
+            <div>
+                <div class="price-tag">$499</div>
+                <p class="price-note">One-time setup fee</p>
+                <ul>
+                    <li>Custom design (not a template)</li>
+                    <li>Works on phones, tablets, desktop</li>
+                    <li>Contact form or booking built in</li>
+                    <li>Shows up on Google</li>
+                    <li>Hosting included</li>
+                    <li>You own the code</li>
+                </ul>
+                <div class="price-tag monthly">$49<span>/mo</span></div>
+                <p class="price-note">Hosting, updates, and support. Cancel anytime.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="contact" id="contact">
+        <h2>Let's talk.</h2>
+        <p>Tell me what you need and I'll get back to you within a day.</p>
+        <form id="contactForm">
+            <input type="text" name="name" placeholder="Name" required>
+            <input type="text" name="business" placeholder="Business name" required>
+            <input type="tel" name="phone" placeholder="Phone" required>
+            <input type="email" name="email" placeholder="Email">
+            <textarea name="message" placeholder="What do you need? (new site, redesign, etc.)" rows="3"></textarea>
+            <button type="submit">Send</button>
+        </form>
+        <div class="form-success" id="formSuccess">
+            <h3>Got it. I'll be in touch soon.</h3>
+        </div>
+    </section>
+
+    <footer>&copy; 2026 MichaWeb</footer>
+
+    <script>
+        document.querySelectorAll('a[href^="#"]').forEach(a => {
+            a.addEventListener('click', e => {
+                e.preventDefault();
+                document.querySelector(a.getAttribute('href'))?.scrollIntoView({ behavior: 'smooth' });
+            });
+        });
+        document.getElementById('contactForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            const data = Object.fromEntries(new FormData(this));
+            try { await fetch('/api/leads', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(data) }); } catch(err) {}
+            this.style.display = 'none';
+            document.getElementById('formSuccess').style.display = 'block';
+        });
+    </script>
+</body>
+</html>
